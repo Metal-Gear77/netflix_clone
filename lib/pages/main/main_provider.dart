@@ -5,16 +5,20 @@ class MainProvider extends ChangeNotifier {
 
   void initProvider() {}
 
-  void selectNavi(int i) {
-    state.naviNum = i;
+  void selectPage(int index) {
+    state.pageIndex = index;
+    state.pageController.jumpToPage(index);
+    // subjectState.pageController
+    //     .animateToPage(index, duration: Duration(seconds: 1), curve: Curves.easeInOut);
     notifyListeners();
   }
 }
 
 class MainState {
-  late int naviNum;
+  late int pageIndex;
+  final PageController pageController = PageController(initialPage: 0);
 
   MainState() {
-    naviNum = 0;
+    pageIndex = 0;
   }
 }

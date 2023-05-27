@@ -22,16 +22,38 @@ class MainPage extends StatelessWidget {
     subjectProvider.initProvider();
 
     return Scaffold(
+      body: PageView(
+        controller: subjectProvider.state.pageController,
+        // physics: NeverScrollableScrollPhysics(),
+        onPageChanged: (int index) {},
+        children: [
+          Container(
+            color: Colors.red,
+          ),
+          Container(
+            color: Colors.blue,
+          ),
+          Container(
+            color: Colors.orange,
+          ),
+          Container(
+            color: Colors.green,
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: MainComponent().bottomNavigationBarItemList,
-        currentIndex: subjectState.naviNum,
+        currentIndex: subjectState.pageIndex,
         selectedItemColor: Colors.white,
-        selectedLabelStyle: TextStyle(color: Colors.white),
+        selectedLabelStyle:
+            TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 8),
         unselectedItemColor: Colors.grey,
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
+        unselectedLabelStyle:
+            TextStyle(color: Colors.grey, fontWeight: FontWeight.normal, fontSize: 8),
         showUnselectedLabels: true,
-        onTap: (int i) {
-          subjectProvider.selectNavi(i);
+        onTap: (int index) {
+          subjectProvider.selectPage(index);
         },
       ),
     );
