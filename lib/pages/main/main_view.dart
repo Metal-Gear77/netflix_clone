@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:netflix_clone/pages/home/home_view.dart';
 import 'package:netflix_clone/pages/main/main_components.dart';
 import 'package:provider/provider.dart';
@@ -25,10 +26,10 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        leading: Icon(Icons.account_balance),
+        leading: IconButton(onPressed: (){}, icon: SvgPicture.asset('assets/img/netflix_official_logo_icon_168085.svg')),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.account_balance_wallet)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.face)),
           SizedBox(width: 10)
         ],
       ),
